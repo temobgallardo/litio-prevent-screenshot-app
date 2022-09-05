@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace litio.preventscreenshot
@@ -13,6 +8,11 @@ namespace litio.preventscreenshot
     public MainPage()
     {
       InitializeComponent();
+    }
+
+    private void GoToScreenshotSafePage(object sender, EventArgs e)
+    {
+      this.Navigation.PushAsync(new ArticlesPage());
     }
   }
 }
