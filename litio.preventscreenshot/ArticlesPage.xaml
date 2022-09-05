@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<preventscreenshot:ScreenshootSafePage  xmlns:preventscreenshot="clr-namespace:litio.preventscreenshot"
+                                        xmlns="http://xamarin.com/schemas/2014/forms"
+                                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                                        x:Class="litio.preventscreenshot.ArticlesPage">
+    <preventscreenshot:ScreenshootSafePage.Content>
+        <StackLayout>
+            <Label Text="This is a screenshot safe page!"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </preventscreenshot:ScreenshootSafePage.Content>
+</preventscreenshot:ScreenshootSafePage>
