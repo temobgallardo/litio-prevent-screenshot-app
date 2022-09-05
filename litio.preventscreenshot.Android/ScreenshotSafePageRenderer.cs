@@ -1,13 +1,17 @@
 ﻿using Android.Content;
 using Android.Views;
 using AndroidX.Core.View;
+using litio.preventscreenshot;
+using litio.preventscreenshot.Droid;
+using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
+[assembly:ExportRenderer(typeof(ScreenshootSafePage), typeof(ScreenshotSafePageRenderer))]
 namespace litio.preventscreenshot.Droid
 {
-  public class ScrenshotSafePageRenderer : PageRenderer, IScreenshotBlockerService
+  public class ScreenshotSafePageRenderer : PageRenderer, IScreenshotBlockerService
   {
-    public ScrenshotSafePageRenderer(Context context) : base(context)
+    public ScreenshotSafePageRenderer(Context context) : base(context)
     {
     }
 
@@ -34,24 +38,13 @@ namespace litio.preventscreenshot.Droid
       }
 
       // apply (or clear) the FLAG_SECURE flag to/from Activity this Fragment is attached to.
-      bool flagsChanged;
       if (apply)
       {
         window.AddFlags(WindowManagerFlags.Secure);
-        flagsChanged = true;
       }
       else
       {
         window.ClearFlags(WindowManagerFlags.Secure);
-        flagsChanged = true;
-      }
-
-      // Re-apply (re-draw) Window's DecorView so the change to the Window flags will be in place immediately.
-      if (flagsChanged && ViewCompat.IsAttachedToWindow(window.DecorView))
-      {
-        // FIXME Removing the View and attaching it back makes visible re-draw on Android 4.x, 5+ is good.
-        windowManger.RemoveViewImmediate(window.DecorView);
-        windowManger.AddView(window.DecorView, window.Attributes);
       }
     }
 
